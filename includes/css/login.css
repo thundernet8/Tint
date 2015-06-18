@@ -1,0 +1,49 @@
+/**
+ * Login Page Stylesheet of Tinection WordPress Theme
+ *
+ * @package   Tinection
+ * @version   1.1.7
+ * @date      2015.3.1
+ * @author    Zhiyan <chinash2010@gmail.com>
+ * @site      Zhiyanblog <www.zhiyanblog.com>
+ * @copyright Copyright (c) 2014, Zhiyan
+ * @license   http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
+ * @link      http://www.zhiyanblog.com/tinection.html
+**/
+
+@media screen and (min-width: 1441px){
+body.login div#login{width: 680px !important;margin-top: 120px !important;}/*方块背景大小控制*/
+#login #nav,.login #backtoblog,.login #login form{padding: 0 165px !important;}/*表单左右边距控制*/
+.login form .input{padding: 7px !important;}
+.wp-core-ui .button.button-primary{height: 45px !important}
+}
+
+@media screen and (min-width: 960px){
+html{background: transparent;}
+body.login{background: #fff url("../../images/login_bg.jpg") no-repeat center top;background-size: cover;height: auto;}
+body.login div#login{width: 550px;height: auto;background: rgba(0,0,0,.5);padding: 60px 0;margin: auto;margin-top: 80px;border-radius: 0px;}/*方块背景大小控制*/
+body.login div#login h1 a {}
+body.login div#login h1{display: block;height: 70px;}
+.login form,.login form .input, .login input[type="text"],.wp-core-ui .button-primary,.wp-core-ui .button-primary:hover{-webkit-box-shadow:none;box-shadow:none;-webkit-border-radius: 0;
+  border-radius: 0;}
+.login form{background: none;}
+#login_error, .login .message{background: transparent;border:0;/*display: none;*/}
+#login form p, .login #backtoblog a, .login #nav a, .login #nav, .login label,#login_error, .login .message{color: #c1c1c1;font-family: 'Microsoft YaHei';}
+.login label{;line-height: 24px;}
+.wp-core-ui .button.button-primary{width: 100%;height: 43px !important;margin-top: 20px;font-size: 15px;background-color: #4daaff;border-radius: 4px;border:0;}
+.wp-core-ui .button.button-primary,.login label,.login form .input{font-family: 'Microsoft YaHei';}
+.wp-core-ui .button-primary:hover {background-color: #66b7ff;-webkit-box-shadow: none;box-shadow: none;border: none;}
+#nav,#backtoblog,.login form{padding: 0 130px !important;}/*表单左右边距控制*/
+.login #backtoblog{margin-top:5px;}
+.login form .input{background: rgba(0,0,0,.4);padding: 5px;border-radius: 3px;border: 1px dashed #666;color:#ccc !important;-webkit-transition: .5s border-color ease-in-out;}/*表单-初始边框样式*/
+.login form .input:hover,.login form .input:focus {border: 1px dashed #999 !important;}/*表单边框-鼠标悬停与焦点样式*/
+.interim-login #login {width: 100%;margin-top: 5px !important;background: none;}
+.interim-login.login form {padding: 26px 24px 46px !important;}
+.interim-login.login form .input {padding: 4px;}
+.tin-open li {width: 45px !important;}
+}
+
+/*ajax logout 后台登出时的弹窗样式*/
+.interim-login #login {width: 100%;margin-top: 5px !important;background: none;}
+.interim-login.login form {padding: 26px 24px 46px !important;}
+.interim-login.login form .input {padding: 4px;}

@@ -1,0 +1,1 @@
+本主题已自带浏览数计数功能，不仅包括文章、页面，还包括首页、分类页、作者页、标签页、搜索词等等，功能更强大，为了平滑的转移之前使用wp-postviews插件所保留的浏览数，请将该p2t.php文件放到网站根目录，与wp-config.php同级目录，然后访问你的网站主页/p2t.php,访问后即使操作成功，但不会返回任何字符，即空白页面，然后请查看你的数据库wp_tin_tracker是否多了数据，保证转移成功后，可以删除wp-postviews的数据库记录，请用phpmyadmin访问你的数据库，执行以下sql查询：DELETE FROM `wp_postmeta` WHERE `meta_key` = 'views' 请谨慎操作！
