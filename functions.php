@@ -1555,9 +1555,6 @@ function tin_ajax_register(){
 		$user_login = sanitize_user($_POST['username']);
 		$user_pass = $_POST['password'];
 		$user_email	= apply_filters( 'user_registration_email', $_POST['email'] );
-		$captcha = strtolower(trim($_POST['tin_captcha']));
-		session_start();
-		$session_captcha = strtolower($_SESSION['tin_captcha']);
 		$errors	= new WP_Error();
 		if( ! validate_username( $user_login ) ){
 			$errors->add( 'invalid_username', __( '请输入一个有效用户名','tinection' ) );
@@ -1652,7 +1649,7 @@ function tin_add_register_captcha(){
 	</p>
 	<?php
 }
-add_action('register_form','tin_add_register_captcha');
+//add_action('register_form','tin_add_register_captcha');
 
 function tin_add_register_captcha_verify($sanitized_user_login,$user_email,$errors){
 	if(!isset($_POST['tin_captcha'])||empty($_POST['tin_captcha'])){
@@ -1666,7 +1663,7 @@ function tin_add_register_captcha_verify($sanitized_user_login,$user_email,$erro
 		}
 	}
 }
-add_action('register_post','tin_add_register_captcha_verify',10,3);
+//add_action('register_post','tin_add_register_captcha_verify',10,3);
 
 
 /* 判断移动终端

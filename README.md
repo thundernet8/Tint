@@ -1,4 +1,0 @@
-Tinection
-=========
-
-An wordpress template
