@@ -16,6 +16,30 @@
 <?php
 /* 请在此加入自定义函数 */
 /* ------------------------------------------------------------------------------------------ */
+////////////////////////////////////////////////////////////////////////////////////
+//获取首页幻灯片文章ID
+function getsliderposts()
+{
+	# code...
+	$posts;
+	$posts_id='';
+	if(ot_get_option('latestslider') == 'on')
+	{
+		$posts = get_posts('numberposts='.ot_get_option('latestnum').'&post_type=post&orderby=ID&order=DESC');
+		
+		foreach($posts as $post)
+		{
+			$posts_id .= $post->ID.',';
+		}
+		substr($posts_id,0,-1);
+	}
+	else
+	{
+		$posts_id = ot_get_option('homeslider');
+	}
+	return $posts_id;
+}
+////////////////////////////////////////////////////////////////////////////////////
 //修复4.2表情bug
 function tin_disable_emoji9s_tinymce($plugins) {
     if (is_array($plugins)) {

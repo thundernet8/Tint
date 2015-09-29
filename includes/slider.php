@@ -31,7 +31,9 @@ $(document).ready(function(){
 <?php 
 	global $posts;
 	$orig_post = $posts;
-	$sliderposts = explode (',' , ot_get_option('homeslider'));
+////////////////////////////////////////////////////////////////////////////////
+	$sliderposts = explode (',' , getsliderposts());
+////////////////////////////////////////////////////////////////////////////////
 	$number = count($sliderposts);
 	$stickys = get_option('sticky_posts');
 	$stickys_num = count($stickys);
