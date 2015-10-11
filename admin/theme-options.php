@@ -702,6 +702,27 @@ function custom_theme_options() {
                                 ),
                            )
         ),
+////////////////////////////////////////////////////////////////////////////////////////
+        // Style: 幻灯片最新文章
+        array(
+            'id'        => 'latestslider',
+            'label'     => __('幻灯片展示最新文章','tinection'),
+            'desc'      => __('首页幻灯片展示为最新更新的文章','tinection'),
+            'type'      => 'on-off',
+            'std'       => 'off',
+            'section'   => 'style'
+        ),
+        //最新文章数量
+        array(
+            'id'        => 'latestnum',
+            'label'     => __('幻灯片展示数量','tinection'),
+            'desc'      => __('首页幻灯片展示最新文章的数量，默认 4 ','tinection'),
+            'type'      => 'numeric-slider',
+            'std'       => '4',
+            'min_max_step'  => '1,10,1',
+            'section'   => 'style'
+        ),
+////////////////////////////////////////////////////////////////////////////////////////
         // Style: 幻灯来源
         array(
             'id'        => 'homeslider',
