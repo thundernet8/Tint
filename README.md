@@ -1,6 +1,23 @@
 # Tinection
 WordPress开源博客CMS模板，带扩展的用户中心以及虚拟物品贩卖模板
 
+# === Tinection-Pro ===
+
+*Theme Name: Tincetion
+*Theme URI: http://www.zhiyanblog.com/store/goods/tinection-pro.html
+*Description: Tinection主题，WordPress多模板主题，知言博客自用主题
+*Version: 1.1.9
+*Date: 2015.9.25
+*Author: Zhiyan
+*Author URI: http://www.zhiyanblog.com/
+*Copyright: (c) 2014-2015 Tinection@Zhiyanblog
+
+主题介绍：http://www.zhiyanblog.com/tinection-pro-intro-and-suggestion.html
+
+主题购买地址：http://www.zhiyanblog.com/store/goods/tinection-pro.html
+
+主题激活授权: http://www.zhiyanblog.com/cdn/tinection/authorize.php
+
 # 更新
 ========================================
 2015.6.9 v1.1.8.1

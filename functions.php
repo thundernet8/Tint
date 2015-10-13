@@ -2207,4 +2207,15 @@ function tin_alipay_post_gather($alipay_email,$amount=10,$hide=0){
 	return $html;
 }
 
+//JS动态变量
+function tin_js_objects(){
+	$objects = array();
+	$objects['ajax_url'] = admin_url('admin-ajax.php');
+	$objects['tin_url'] = get_bloginfo('template_directory');
+	$objects['Tracker'] = tin_tracker_param();
+	$objects['uid'] = get_current_user_id();
+	$object_json = json_encode($object);
+	return $object_json;
+}
+
 ?>

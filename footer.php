@@ -56,7 +56,7 @@
 			<!-- Copyright -->
 			<div id="footer-copyright">&copy;<?php echo tin_copyright_year(); ?>
 				<?php if(ot_get_option('copyright')) echo ot_get_option('copyright'); ?>&nbsp;|&nbsp;Theme by&nbsp;
-				<a href="http://www.zhiyanblog.com/tinection.html"  target="_blank">Tinection</a>.
+				<a href="http://www.zhiyanblog.com/store/goods/tinection-pro.html"  target="_blank">Tinection</a>.
 				<?php if(ot_get_option('statisticcode')) echo '&nbsp;|&nbsp;'.ot_get_option('statisticcode'); ?>
 			<?php if(ot_get_option('beian')) echo '&nbsp;|&nbsp;<a href="http://www.miitbeian.gov.cn/" target="_blank">'.ot_get_option('beian').'</a>'; ?>
 			<!--<?php echo get_num_queries();?> queries in <?php timer_stop(1); ?> seconds.-->			
@@ -96,6 +96,7 @@
 <script type="text/javascript">
 /* <![CDATA[ */
 var ajax_sign_object = <?php echo ajax_sign_object(); ?>;
+var tin = <?php echo tin_js_objects(); ?>
 /* ]]> */
 </script>
 <script src="<?php bloginfo('template_directory'); ?>/includes/js/function.js"></script>
@@ -112,7 +113,6 @@ var ajax_sign_object = <?php echo ajax_sign_object(); ?>;
 <?php if(ot_get_option('footercode')) echo ot_get_option('footercode'); ?>
 <!-- 引入主题js -->
 <?php wp_enqueue_script('tinection'); ?>
-<?php wp_localize_script('tinection', 'tin', array('ajax_url' => admin_url('admin-ajax.php'),'tin_url' => get_bloginfo('template_directory'),'Tracker' => tin_tracker_param(),'uid' => get_current_user_id())); ?>
 <?php wp_footer(); ?>
 <!-- /.Footer -->
 <script type="text/javascript">
