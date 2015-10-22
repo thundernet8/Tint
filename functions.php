@@ -291,7 +291,7 @@ add_filter('show_admin_bar', '__return_false');
 
 /* 变更默认用户角色 投稿者增加上传图片权限 */
 function tin_default_role(){
-	if(get_option('default_role')!='contributor')update_option('default_role','contributor');
+	//if(get_option('default_role')!='contributor')update_option('default_role','contributor');
 	if ( current_user_can('contributor') && !current_user_can('upload_files') ){
 		$contributor = get_role('contributor');
   		$contributor->add_cap('upload_files');
@@ -2214,8 +2214,8 @@ function tin_js_objects(){
 	$objects['tin_url'] = get_bloginfo('template_directory');
 	$objects['Tracker'] = tin_tracker_param();
 	$objects['uid'] = get_current_user_id();
-	$object_json = json_encode($object);
-	return $object_json;
+	$objects_json = json_encode($objects);
+	return $objects_json;
 }
 
 ?>
