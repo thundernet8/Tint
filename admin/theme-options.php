@@ -24,10 +24,10 @@ function custom_theme_options() {
   $saved_settings = get_option( ot_settings_id(), array() );
   $blogname = get_bloginfo('name');
   $blogurl = get_bloginfo('url');
-  $categories = get_categories(); $cats_output='';foreach ($categories as $cat) {$cats_output .= $cat->cat_ID.' => '.$cat->cat_name.';<br>';}
-  $posts = get_posts('numberposts=500&post_type=post&orderby=ID&order=DESC'); $posts_output='';foreach($posts as $post) {$posts_output .= $post->ID.' => '.$post->post_title.'&nbsp;&nbsp;(<span style="color:#1cbdc5">'.$post->post_date.'</span>);<br>';}
-  $pages = get_posts('numberposts=50&post_type=page&orderby=ID&order=DESC'); $pages_output='';foreach($pages as $page) {$pages_output .= $page->ID.' => '.$page->post_title.'&nbsp;&nbsp;(<span style="color:#1cbdc5">'.$page->post_date.'</span>);<br>';}
-  $products = get_posts('numberposts=100&post_type=store&orderby=ID&order=DESC'); $products_output='';foreach($products as $product) {$products_output .= $product->ID.' => '.$product->post_title.'&nbsp;&nbsp;(<span style="color:#1cbdc5">'.$product->post_date.'</span>);<br>';}
+  //$categories = get_categories(); $cats_output='';foreach ($categories as $cat) {$cats_output .= $cat->cat_ID.' => '.$cat->cat_name.';<br>';}
+  //$posts = get_posts('numberposts=500&post_type=post&orderby=ID&order=DESC'); $posts_output='';foreach($posts as $post) {$posts_output .= $post->ID.' => '.$post->post_title.'&nbsp;&nbsp;(<span style="color:#1cbdc5">'.$post->post_date.'</span>);<br>';}
+  //$pages = get_posts('numberposts=50&post_type=page&orderby=ID&order=DESC'); $pages_output='';foreach($pages as $page) {$pages_output .= $page->ID.' => '.$page->post_title.'&nbsp;&nbsp;(<span style="color:#1cbdc5">'.$page->post_date.'</span>);<br>';}
+  //$products = get_posts('numberposts=100&post_type=store&orderby=ID&order=DESC'); $products_output='';foreach($products as $product) {$products_output .= $product->ID.' => '.$product->post_title.'&nbsp;&nbsp;(<span style="color:#1cbdc5">'.$product->post_date.'</span>);<br>';}
   $theme = wp_get_theme();
   $version = $theme->get('Version');
   
@@ -100,10 +100,10 @@ function custom_theme_options() {
             'id'        => 'smtp',
             'title'     => __('SMTP','tinection')
         ),
-        array(
-            'id'        => 'cats_and_posts_IDs',
-            'title'     => __('ID对照表','tinection')
-        )
+        // array(
+        //     'id'        => 'cats_and_posts_IDs',
+        //     'title'     => __('ID对照表','tinection')
+        // )
     ),
 /*  Theme options
 /* ------------------------------------ */
@@ -1663,46 +1663,46 @@ function custom_theme_options() {
             'std'       => '10',
             'section'   => 'admin'
         ),
-        //商品ID对照表
-        array(
-            'id'        => 'products',
-            'label'     => __('商品ID对照表','tinection'),
-            'type'      => 'textblock-titled',
-            'desc'   => '
-            <p>'.$products_output.'</p>
-            ',
-            'section'     => 'cats_and_posts_IDs'
-        ),
-        //分类ID对照表
-        array(
-            'id'        => 'cats',
-            'label'     => __('分类ID对照表','tinection'),
-            'type'      => 'textblock-titled',
-            'desc'   => '
-            <p>'.$cats_output.'</p>
-            ',
-            'section'     => 'cats_and_posts_IDs'
-        ),
-        //页面ID对照表
-        array(
-            'id'        => 'pages',
-            'label'     => __('页面ID对照表','tinection'),
-            'type'      => 'textblock-titled',
-            'desc'   => '
-            <p>'.$pages_output.'</p>
-            ',
-            'section'     => 'cats_and_posts_IDs'
-        ), 
-        //文章ID对照表
-        array(
-            'id'        => 'posts',
-            'label'     => __('文章ID对照表','tinection'),
-            'type'      => 'textblock-titled',
-            'desc'   => '
-            <p>'.$posts_output.'</p>
-            ',
-            'section'     => 'cats_and_posts_IDs'
-        ),
+        // //商品ID对照表
+        // array(
+        //     'id'        => 'products',
+        //     'label'     => __('商品ID对照表','tinection'),
+        //     'type'      => 'textblock-titled',
+        //     'desc'   => '
+        //     <p>'.$products_output.'</p>
+        //     ',
+        //     'section'     => 'cats_and_posts_IDs'
+        // ),
+        // //分类ID对照表
+        // array(
+        //     'id'        => 'cats',
+        //     'label'     => __('分类ID对照表','tinection'),
+        //     'type'      => 'textblock-titled',
+        //     'desc'   => '
+        //     <p>'.$cats_output.'</p>
+        //     ',
+        //     'section'     => 'cats_and_posts_IDs'
+        // ),
+        // //页面ID对照表
+        // array(
+        //     'id'        => 'pages',
+        //     'label'     => __('页面ID对照表','tinection'),
+        //     'type'      => 'textblock-titled',
+        //     'desc'   => '
+        //     <p>'.$pages_output.'</p>
+        //     ',
+        //     'section'     => 'cats_and_posts_IDs'
+        // ), 
+        // //文章ID对照表
+        // array(
+        //     'id'        => 'posts',
+        //     'label'     => __('文章ID对照表','tinection'),
+        //     'type'      => 'textblock-titled',
+        //     'desc'   => '
+        //     <p>'.$posts_output.'</p>
+        //     ',
+        //     'section'     => 'cats_and_posts_IDs'
+        // ),
 		// SMTP: 是否开启SMTP发信
         array(
             'id'        => 'smtp_switch',
