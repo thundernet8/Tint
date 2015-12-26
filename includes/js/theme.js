@@ -1106,22 +1106,6 @@ $(document).ready(function(){
     		jQuery( '#flexslider' ).flexslider( 'play' );
   		}
   	});
-    //QR img
-    var qcode = {
-      api : "http://qr.liantu.com/api.php?text=",
-      url :  window.location.href,
-      exist : false,
-      create : function(){
-      if(!this.exist){
-        var image = document.createElement('img');
-        image.src = this.api + this.url;
-        image.width = 120;
-        this.exist = true;
-        return image;
-        }
-      }
-    };
-    document.getElementById('floatbtn-qr').insertBefore(qcode.create(),document.getElementById('floatbtn-qr-msg'));
 	
 	//Toggle Content
 	$('.toggle-click-btn').click(function(){

@@ -26,11 +26,11 @@
 <!-- /.Share -->
 
 <!-- QR -->
-<span id="qr" class="mobile-hide"><i class="fa fa-qrcode"></i>
+<!--span id="qr" class="mobile-hide"><i class="fa fa-qrcode"></i>
 	<div id="floatbtn-qr">
 		<div id="floatbtn-qr-msg"><?php _e('扫一扫二维码分享','tinection'); ?></div>
 	</div>
-</span>
+</span-->
 <!-- /.QR -->
 
 <!-- Simplified or Traditional -->
