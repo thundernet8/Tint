@@ -281,7 +281,7 @@ function tin_open_template_redirect(){
 					$user_ID = get_current_user_id();
 					if($type==='weibo'){
 						$token = get_user_meta($user_ID , 'tin_weibo_access_token', true );
-						$info = wp_remote_retrieve_body(wp_remote_get('https://api.weibo.com/oauth2/revokeoauth2?access_token='.$token));	
+						$info = tin_curl_get('https://api.weibo.com/oauth2/revokeoauth2?access_token='.$token);	
 					}
 					delete_user_meta($user_ID, 'tin_'.$type.'_openid');
 					delete_user_meta($user_ID, 'tin_'.$type.'_access_token');
@@ -348,7 +348,7 @@ function tin_open_template_redirect(){
 				'redirect_uri'=>$OPEN_QQ['CALLBACK']
 			);
 
-			$response = tin_connect_check(wp_remote_retrieve_body(wp_remote_get('https://graph.qq.com/oauth2.0/token?'.http_build_query($params))));
+			$response = tin_connect_check(tin_curl_get('https://graph.qq.com/oauth2.0/token?'.http_build_query($params)));
 
 			 if (strpos($response, "callback") !== false){
 				$lpos = strpos($response, "(");
@@ -366,7 +366,7 @@ function tin_open_template_redirect(){
 			
 			$graph_url = "https://graph.qq.com/oauth2.0/me?access_token=".$token;
 			
-			$str = tin_connect_check(wp_remote_retrieve_body(wp_remote_get($graph_url)));
+			$str = tin_connect_check(tin_curl_get($graph_url));
 	 
 			if (strpos($str, "callback") !== false){
 				$lpos = strpos($str, "(");
@@ -382,7 +382,7 @@ function tin_open_template_redirect(){
 			
 			$info_url = "https://graph.qq.com/user/get_user_info?access_token=".$token."&oauth_consumer_key=".$OPEN_QQ['APPID']."&openid=".$qq_openid;
 			
-			$info = json_decode(tin_connect_check(wp_remote_retrieve_body(wp_remote_get($info_url))));
+			$info = json_decode(tin_connect_check(tin_curl_get($info_url)));
 			
 			if ($info->ret){
 				wp_die( "<b>error</b> " . $info->ret . " <b>msg</b> " . $info->msg.$redirect_text , $die_title );
@@ -425,13 +425,13 @@ function tin_open_template_redirect(){
 
 		if( isset($_GET['code']) ){
 
-			$access = tin_connect_check(wp_remote_retrieve_body(wp_remote_post('https://api.weibo.com/oauth2/access_token?',array( 'body' => array(
+			$access = tin_connect_check(wp_remote_post('https://api.weibo.com/oauth2/access_token?',array( 'body' => array(
 				'grant_type'=>'authorization_code',
 				'client_id'=>$OPEN_WEIBO['KEY'],
 				'client_secret'=>$OPEN_WEIBO['SECRET'],
 				'code'=>trim($_GET['code']),
 				'redirect_uri'=>$OPEN_WEIBO['CALLBACK']
-			)))));
+			))));
 			
 			$access = json_decode($access,true);
 			
@@ -442,7 +442,7 @@ function tin_open_template_redirect(){
 			$openid = $access["uid"];
 			$token = $access["access_token"];
 
-			$info = tin_connect_check(wp_remote_retrieve_body(wp_remote_get('https://api.weibo.com/2/users/show.json?access_token='.$token.'&uid='.$openid)));
+			$info = tin_connect_check(tin_curl_get('https://api.weibo.com/2/users/show.json?access_token='.$token.'&uid='.$openid));
 
 			$info = json_decode($info,true);
 			
@@ -494,7 +494,7 @@ function tin_open_template_redirect(){
 				'appid'=>$OPEN_WEIXIN['APPID'],
 				'redirect_uri'=>$OPEN_WEIXIN['CALLBACK']
 			);
-				$response = tin_connect_check(wp_remote_retrieve_body(wp_remote_get('https://api.weixin.qq.com/sns/oauth2/refresh_token'.http_build_query($params))));
+				$response = tin_connect_check(tin_curl_get('https://api.weixin.qq.com/sns/oauth2/refresh_token'.http_build_query($params)));
 			}else{
 				$params = array(
 				'grant_type'=>'authorization_code',
@@ -503,7 +503,7 @@ function tin_open_template_redirect(){
 				'secret'=>$OPEN_WEIXIN['APPKEY'],
 				'redirect_uri'=>$OPEN_WEIXIN['CALLBACK']
 			);
-				$response = tin_connect_check(wp_remote_retrieve_body(wp_remote_get('https://api.weixin.qq.com/sns/oauth2/access_token?'.http_build_query($params))));
+				$response = tin_connect_check(tin_curl_get('https://api.weixin.qq.com/sns/oauth2/access_token?'.http_build_query($params)));
 			}	
 
 			if (!empty($response)){
@@ -520,7 +520,7 @@ function tin_open_template_redirect(){
 			
 			$info_url = "https://api.weixin.qq.com/sns/userinfo?access_token=".$token."&openid=".$weixin_openid;
 			
-			$str = tin_connect_check(wp_remote_retrieve_body(wp_remote_get($info_url)));
+			$str = tin_connect_check(tin_curl_get($info_url));
 	
 			$user = json_decode($str);
 			if (isset($user->errcode)){
