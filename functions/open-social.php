@@ -433,7 +433,7 @@ function tin_open_template_redirect(){
 				'redirect_uri'=>$OPEN_WEIBO['CALLBACK']
 			))));
 			
-			$access = json_decode($access,true);
+			$access = is_array($access) ? $access : json_decode($access,true);
 			
 			if (isset($access["error"])){
 				wp_die( "<b>error</b> " . $access["error"] . " <b>msg</b> " . $access["error_description"].$redirect_text , $die_title );

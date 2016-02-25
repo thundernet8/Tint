@@ -49,7 +49,7 @@ function update_tin_credit( $user_id , $num , $method='add' , $field='tin_credit
 	$field = $field=='tin_credit' ? $field : 'tin_credit_void';
 	
 	$credit = (int)get_user_meta( $user_id, $field, true );
-	$num = (int)$num;
+	$num = abs((int)$num);
 
 	if( $method=='add' ){
 		
