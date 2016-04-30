@@ -78,21 +78,21 @@ if (is_page()&&!isset($_GET['pid'])) {
 <?php } ?>
 <?php if ( is_category() ) { ?>
 <meta name="description" content="<?php echo strip_tags(category_description($cat_ID)); ?>" />
-<meta name="keywords" content="<?php echo get_option('tin_keywords'); ?>" />
+<meta name="keywords" content="<?php echo ot_get_option('tin_keywords'); ?>" />
 <?php } ?>
 <?php if ( is_page()&&!is_front_page() ) { ?>
 <meta name="description" content="<?php echo trim($description); ?>" />
 <meta name="keywords" content="<?php echo rtrim($keywords,','); ?>" />
 <?php } ?>
 <?php if ( is_tag() ) { ?>
-<meta name="description" content="<?php echo sprintf(__('%1$s上关于%2$s的所有日志聚合','tinection'),get_bloginfo('name'),single_tag_title()); ?>" />
+<meta name="description" content="<?php echo sprintf(__('%1$s上关于%2$s的所有日志聚合','tinection'),get_bloginfo('name'),single_tag_title("", false)); ?>" />
 <?php } ?>
 <?php if ( is_year() ) { ?>
-<meta name="description" content="<?php echo sprintf(__('%1$s上%2$s发布的所有日志聚合','tinection'),get_bloginfo('name'),the_time(__('Y年','tinection'))); ?>" />
+<meta name="description" content="<?php echo sprintf(__('%1$s上%2$s发布的所有日志聚合','tinection'),get_bloginfo('name'),get_the_time(__('Y年','tinection'))); ?>" />
 <?php } ?>
 <?php if ( is_month() ) { ?>
-<meta name="description" content="<?php echo sprintf(__('%1$s上%2$s份发布的所有日志聚合','tinection'),get_bloginfo('name'),the_time(__('Y年n月','tinection'))); ?>" />
+<meta name="description" content="<?php echo sprintf(__('%1$s上%2$s份发布的所有日志聚合','tinection'),get_bloginfo('name'),get_the_time(__('Y年n月','tinection'))); ?>" />
 <?php } ?>
 <?php if ( is_day() ) { ?>
-<meta name="description" content="<?php echo sprintf(__('%1$s上%2$s发布的所有日志聚合','tinection'),get_bloginfo('name'),the_time(__('Y年n月j日','tinection'))); ?>" />
+<meta name="description" content="<?php echo sprintf(__('%1$s上%2$s发布的所有日志聚合','tinection'),get_bloginfo('name'),get_the_time(__('Y年n月j日','tinection'))); ?>" />
 <?php } ?>
