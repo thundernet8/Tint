@@ -425,13 +425,13 @@ function tin_open_template_redirect(){
 
 		if( isset($_GET['code']) ){
 
-			$access = tin_connect_check(wp_remote_post('https://api.weibo.com/oauth2/access_token?',array( 'body' => array(
+			$access = tin_connect_check(wp_remote_retrieve_body(wp_remote_post('https://api.weibo.com/oauth2/access_token?', array( 'body' => array(
 				'grant_type'=>'authorization_code',
 				'client_id'=>$OPEN_WEIBO['KEY'],
 				'client_secret'=>$OPEN_WEIBO['SECRET'],
 				'code'=>trim($_GET['code']),
 				'redirect_uri'=>$OPEN_WEIBO['CALLBACK']
-			))));
+			)) )));
 			
 			$access = is_array($access) ? $access : json_decode($access,true);
 			
