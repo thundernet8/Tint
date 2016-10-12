@@ -21,7 +21,7 @@
 	</div>
 <?php } else { ?>
 	<div class="login-yet-mobile">
-<?php global $current_user; get_currentuserinfo();?>
+<?php global $current_user; $current_user = wp_get_current_user(); ?>
 		<div class="login-yet-mobile-avatar">
 			<?php echo tin_get_avatar( $current_user->ID , '60' , tin_get_avatar_type($current_user->ID) ); ?>
 		</div>

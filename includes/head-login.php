@@ -19,7 +19,7 @@
 			<span data-sign="0" id="user-login" class="user-login ie_pie <?php if($register == 'off') echo 'only-login'; ?>"><?php _e(' 登录','tinection'); ?></span>
 			<?php if($register == 'on') { ?><span data-sign="1" id="user-reg" class="user-reg ie_pie"><?php _e('注册','tinection'); ?></span><?php }?>
 		</div>
-<?php }else{global $current_user; get_currentuserinfo();?>
+<?php }else{global $current_user; $current_user = wp_get_current_user(); ?>
 			<div class="login-yet-click">
 				<div class="login-yet-click-inner">
 					<?php echo tin_get_avatar( $current_user->ID , '35' , tin_get_avatar_type($current_user->ID) ); ?>
